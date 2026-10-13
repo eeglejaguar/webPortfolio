@@ -189,7 +189,7 @@ function scrollLitWords() {
 
 /* ───────── chrome ───────── */
 function chrome() {
-  const nav = $('#nav'), bar = $('#progress');
+  const nav = $('#nav');
   let lastY = scrollY;
   const sections = ['about', 'work', 'playground', 'contact'].map((id) => document.getElementById(id));
   const links = [...document.querySelectorAll('.nav__links a')];
@@ -198,7 +198,6 @@ function chrome() {
     () => {
       const y = scrollY;
       const max = document.documentElement.scrollHeight - innerHeight;
-      bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
       nav.classList.toggle('is-scrolled', y > 40);
       nav.classList.toggle('is-hidden', y > lastY && y > 400);
       lastY = y;
