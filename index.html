@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saim Ansari — Full-Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Saim Ansari — full-stack web developer building SaaS platforms, AI-powered tools and interactive websites."
+    />
+    <meta property="og:title" content="Saim Ansari — Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="SaaS platforms, AI tools and websites that feel alive. Come play around."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#07070c" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="is-loading">
+    <!-- Boot loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <pre class="loader__log" id="loaderLog"></pre>
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+      <div class="loader__pct" id="loaderPct">0%</div>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <header class="nav" id="nav">
+      <a href="#home" class="nav__logo" data-magnetic data-cursor="home">
+        <span class="nav__logo-mark">SA</span><span class="nav__logo-blink">_</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#about" data-magnetic>About</a>
+        <a href="#work" data-magnetic>Work</a>
+        <a href="#playground" data-magnetic>Playground</a>
+        <a href="#contact" data-magnetic>Contact</a>
+      </nav>
+      <div class="nav__tools">
+        <button class="chip-btn" id="trophyBtn" data-magnetic data-cursor="secrets" aria-label="Achievements">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V18h3v3H8v-3h3v-3.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3Zm10 4v3a2 2 0 0 0 1-1.7V7h-1ZM6 7v1.3A2 2 0 0 0 7 10V7H6Z"/></svg>
+          <span id="trophyCount">0/0</span>
+        </button>
+        <button class="chip-btn" id="termBtn" data-magnetic data-cursor="terminal" aria-label="Open terminal">
+          <span class="mono">&gt;_</span>
+        </button>
+        <button class="chip-btn" id="themeBtn" data-magnetic data-cursor="theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <canvas class="hero__canvas" id="heroCanvas"></canvas>
+        <div class="hero__content">
+          <p class="hero__hello mono reveal">
+            <span class="status-dot"></span> <span id="heroStatus">available for work</span> · <span id="heroClock">--:--</span> in Karachi
+          </p>
+          <h1 class="sr-only" id="heroName">Saim Ansari</h1>
+          <div class="hero__spacer" aria-hidden="true"></div>
+          <p class="hero__role reveal">
+            <span class="mono accent">&lt;</span><span id="typed"></span><span class="caret">|</span><span class="mono accent">/&gt;</span>
+          </p>
+          <p class="hero__tagline reveal" id="heroTagline"></p>
+          <div class="hero__ctas reveal">
+            <a href="#work" class="btn btn--primary" data-magnetic data-cursor="explore">See my work</a>
+            <button class="btn btn--ghost" data-magnetic data-open-terminal data-cursor="type">Open terminal</button>
+          </div>
+        </div>
+        <p class="hero__hint mono" id="heroHint">move your cursor through the letters · click to blow them up</p>
+        <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" id="marquee"></div>
+      </div>
+
+      <!-- ABOUT -->
+      <section class="section about" id="about">
+        <div class="section__head">
+          <span class="section__num mono">01</span>
+          <h2 class="section__title split">Who's behind the code</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text" id="aboutText"></div>
+          <aside class="about__card tilt" data-tilt>
+            <div class="about__card-glow"></div>
+            <div class="about__avatar" id="avatar" data-cursor="poke me">
+              <div class="avatar__face">
+                <div class="avatar__eye"><span></span></div>
+                <div class="avatar__eye"><span></span></div>
+              </div>
+              <div class="avatar__mouth"></div>
+            </div>
+            <dl class="about__facts mono" id="facts"></dl>
+          </aside>
+        </div>
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <!-- WORK -->
+      <section class="section work" id="work">
+        <div class="section__head">
+          <span class="section__num mono">02</span>
+          <h2 class="section__title split">Things I've built</h2>
+        </div>
+        <p class="section__lede">SaaS platforms, AI tools and client websites. Hover to tilt, click to open the case study.</p>
+        <div class="filters" id="filters" role="tablist"></div>
+        <div class="projects" id="projects"></div>
+      </section>
+
+      <!-- PLAYGROUND -->
+      <section class="section playground" id="playground">
+        <div class="section__head">
+          <span class="section__num mono">03</span>
+          <h2 class="section__title split">My toolbox — but make it physical</h2>
+        </div>
+        <p class="section__lede">Grab a skill and throw it. Try shaking things up, flipping gravity, or scattering everything.</p>
+        <div class="playground__box" data-cursor="grab">
+          <canvas id="skillsCanvas"></canvas>
+          <div class="playground__controls">
+            <button class="chip-btn" id="gravityBtn" data-magnetic>Flip gravity</button>
+            <button class="chip-btn" id="shakeBtn" data-magnetic>Shake</button>
+            <button class="chip-btn" id="zeroGBtn" data-magnetic>Zero-G</button>
+          </div>
+          <div class="playground__legend mono" id="legend"></div>
+        </div>
+      </section>
+
+      <!-- TERMINAL -->
+      <section class="section term-section" id="terminal-section">
+        <div class="section__head">
+          <span class="section__num mono">04</span>
+          <h2 class="section__title split">Prefer the command line?</h2>
+        </div>
+        <p class="section__lede">A real(ish) shell. Type <code>help</code> to get started — there are a few secrets in here.</p>
+        <div class="terminal" id="terminalInline"></div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section contact" id="contact">
+        <span class="section__num mono">05</span>
+        <h2 class="contact__title">
+          <span class="split">Let's build</span><br />
+          <span class="split outline">something alive.</span>
+        </h2>
+        <p class="section__lede">Got a SaaS idea, a product that needs shipping, or a site that needs a soul? I'm listening.</p>
+        <div class="contact__links" id="contactLinks"></div>
+      </section>
+    </main>
+
+    <footer class="footer mono">
+      <span>© <span id="year"></span> Saim Ansari · built from scratch, no templates</span>
+      <span class="footer__hint">psst… try the Konami code ↑↑↓↓←→←→BA</span>
+    </footer>
+
+    <!-- Project modal -->
+    <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__backdrop" data-close></div>
+      <article class="modal__panel" id="modalPanel"></article>
+    </div>
+
+    <!-- Floating terminal -->
+    <div class="term-float" id="termFloat" aria-hidden="true">
+      <div class="term-float__bar">
+        <span class="dots"><i data-close-term></i><i></i><i></i></span>
+        <span class="mono">saim@portfolio: ~</span>
+      </div>
+      <div class="terminal terminal--float" id="terminalFloat"></div>
+    </div>
+
+    <!-- Achievements panel -->
+    <div class="achievements" id="achievements" aria-hidden="true">
+      <div class="achievements__head">
+        <h3>Secrets found</h3>
+        <button class="chip-btn" data-close-ach aria-label="Close">✕</button>
+      </div>
+      <ul id="achList"></ul>
+    </div>
+
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+    <canvas class="fx-canvas" id="fxCanvas" aria-hidden="true"></canvas>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
